@@ -9,6 +9,9 @@ from django.contrib.auth import login, logout
 import re
 from .models import FileUpload
 import pandas as pd
+from django.shortcuts import redirect
+
+   
 
 
 
@@ -50,17 +53,7 @@ def loginuser(request):
         return render(request,'Login.html',{'form':AuthenticationForm()})  
 
 def loginAdmin(request):
-    
-    if request.method=="POST":
-        loginsuccess=authenticate(request,username=request.POST.get('username'),password=request.POST.get('password')) 
-        
-        if loginsuccess is None:
-            return render(request,'ADMINLOGIN.html',{'form':AuthenticationForm(),'error':'The username and password are wrong..'})
-        else:
-            login(request,loginsuccess)
-            return redirect('Welcomepage')
-    else:
-        return render(request,'ADMINLOGIN.html',{'form':AuthenticationForm()})          
+    return redirect("http://127.0.0.1:8000/admin/login/?next=/admin/")        
 
 def home(request): 
     return render(request,'Page1.html')    
