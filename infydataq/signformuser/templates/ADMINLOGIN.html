@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<head>
+    <title>InfyDataQ</title>
+    <style>
+        body {background: linear-gradient(90deg, #dbd8c4, #c4775f80);}
+        .container {
+                       display: flex;
+                       align-items: center;
+                       justify-content: center;
+                       min-height: 80vh;
+                   }
+       
+       .fancy {
+         position: relative;
+         background-image: url('https://officechai.com/wp-content/uploads/2015/08/infy-mysore.jpg');
+         background-position: center;
+           background-repeat: no-repeat;
+                   background-size: cover;
+                   position: relative;
+         padding: 2rem;
+         height: 475px;
+         width: 600px;
+         box-shadow: 0px 0px 35px #a47854;
+         text-align: center;
+         
+       }
+       
+       .fancy::before {
+         content: "";
+       
+         position : absolute;
+         z-index  : -1;
+         bottom   : 15px;
+         right    : 5px;
+         width    : 50%;
+         top      : 80%;
+         
+       
+         box-shadow: 0px 13px 10px black;
+         transform: rotate(4deg);
+       }
+       
+       .ghost-round {
+           border: 1px solid rgba(255, 255, 255, 0.65);
+           border-radius: 25px;
+         color: rgb(22, 18, 16);
+         padding: 15px 32px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 18px;
+         margin: 4px 2px;
+         cursor: pointer;
+         margin-top: 25px;
+       margin-bottom: 40px;
+       align-self: flex-end;
+       }
+       .ghost-round:hover {
+               background: rgba(41, 13, 13, 0.15);
+               color: rgb(228, 99, 99);
+               -webkit-transition: all .2s ease;
+               transition: all .2s ease;
+               }
+       .input-fields {
+               margin-top: 50px;
+               color: aquamarine;                            
+               opacity: 0.6;
+               }
+               .input-line {
+                
+               margin-bottom: 10px;
+               line-height: 2.4em;
+               color: rgb(7, 0, 0);
+               font-family: roboto;
+               font-weight: bolder;
+               letter-spacing: 0px;
+               letter-spacing: 0.02rem;
+               font-size: 19px;
+               font-size: 1.2rem;
+               border-bottom: 1px solid rgba(175, 46, 46, 0.65);
+               -webkit-transition: all .2s ease;
+               transition: all .2s ease;
+               }
+       
+               .full-width {
+               width: 100%;
+               }
+       
+       
+       
+       #bottom {
+                       position:absolute; 
+                                    
+                       bottom: 100px;                         
+                       left:200px;                          
+                   }
+       </style>
+</head>
+<body>
+    <h1 style="text-align:center;color: #1b0c3b; " >InfyDataQ </h1>
+   
+    <div class="container"><div class="fancy">
+        <h1 style="color: #700e0e;" >Welcome Admin. </h1>
+        <h1 style="color: #700e0e;" >Login to continue .</h1>
+        <form action="{% url 'loginAdmin' %}" method="POST">           
+        <div class='input-fields'>
+            <input name='username' type='text' placeholder='Admin Name' class='input-line full-width'></input>       
+            <input  type='text' placeholder='Email ID ' class='input-line full-width'></input>            
+            <input name='password' type='password' placeholder='Password' class='input-line full-width'></input> 
+        </div>
+        {% comment %} <div><button  class='ghost-round full-width'>Login</button></div> {% endcomment %}
+        <div>  {% csrf_token%}
+            <button  class='ghost-round full-width' >Login
+              {% comment %} <a  href="{% url 'loginuser'%}">Login</a> {% endcomment %}
+            </button>
+            </form></div>
+        <strong style="font-size:20px;text-shadow: 2px 2px 5px rgb(150, 10, 10);
+        color: rgb(2, 2, 2);margin-bottom: 30px;">  If you are a Admin, <a href="{% url 'signnewuser'%}" > Register here</a></strong>
+    
+    </div>
+</div>
+<h1 style="color: red; font-size: 35px;">{{error}}</h1>  
+<h1 style="color: green; font-size: 35px;">{{info}}</h1>   
+</div>
+</div>
+
+</body>
+
+
+</html>
+<!-- <style>
+    a2{
+        color:brown;
+        font-size: 25px;
+    }
+	a1{
+        color:black;
+        font-size: 25px;
+    }
+    body{
+        margin: 0;
+    }
+    html {
+        margin: 0;
+        height: 100%;
+
+    }
+    table{
+        margin-left: auto;
+        margin-right: auto;
+        
+        
+    }
+    
+    th,td{
+        height:100%;
+        padding-top:22px;
+        te
+    }
+	button[type=submit] {
+    width: 10em;  height: 2.5em; background-color:DarkKhaki;
+}
+   
+    .infyImage{
+        background-image: url('https://officechai.com/wp-content/uploads/2015/08/infy-mysore.jpg');
+        background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height:720px;
+
+    } -->
+    
+   
+
+</style>

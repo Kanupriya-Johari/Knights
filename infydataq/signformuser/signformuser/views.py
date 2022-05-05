@@ -93,6 +93,6 @@ def index(request):
         document=FileUpload.objects.create(file=file2)
         document.save()
         df.to_csv('cleaned_file.csv')
-        return HttpResponse("your file was saved")
+        return render(request,'index.html',{'form':UserCreationForm(),'info':'The file is uploaded successfully!!'})
     else:
         return render(request, 'index.html')

@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<head>
+    <title>InfyDataQ</title>
+    <style>
+        a{
+            font-family: Arial, Helvetica, sans-serif;
+            color: darkslategray; 
+        }
+        body{
+            margin: 0;
+        }
+        html {
+            margin: 0;
+            height: 100%;
+    
+        }
+        table{
+            position: relative;
+            margin-top: 210px;
+            margin-left: auto;
+            margin-right: auto;
+            
+            
+        }
+        .center {
+             margin-left: auto;
+             margin-right: auto;
+        }
+        table#table1 {
+        width:70%; 
+        margin-left:15%; 
+        margin-right:15%;
+        }
+        h1{
+            padding-top:100px;
+        }
+        th,td{
+            height:100%;
+            padding-top:22px;
+            
+        }
+       
+        .infyImage{
+            background-image: url('https://officechai.com/wp-content/uploads/2015/08/infy-mysore.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            height:720px;
+    
+        }
+        .input-fields {
+        margin-top: 50px;
+        }
+        .input-line {
+        background: none;
+        margin-bottom: 10px;
+        line-height: 2.4em;
+        color: rgb(146, 33, 33);
+        font-family: roboto;
+        font-weight: 300;
+        letter-spacing: 0px;
+        letter-spacing: 0.02rem;
+        font-size: 19px;
+        font-size: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+        }
+       
+       
+    
+    </style> 
+</head>
+<body class="infyImage"> 
+<!-- 
+    <img src="https://officechai.com/wp-content/uploads/2015/08/infy-mysore.jpg" alt="infy" />  -->
+
+
+  
+    <center>
+        <form method="POST">
+            
+        <h1>Welcome to InfyDataQ</h1>
+        <div class='input-fields'>
+            <input type='text' placeholder='Username' class='input-line full-width'></input>          
+           
+            <input type='password' placeholder='Password' class='input-line full-width'></input>                
+           
+        </div>
+        
+      <br><br>
+        <table class="center" id="table1">
+        
+        </table>
+        <br>
+        <input type="submit" style ="width: 10%; padding: 12px 20px; margin: 8px 0;box-sizing: border-box;
+        border: 2px solid rgb(109, 20, 20);border-radius: 4px;font-size: 20px;font-weight: bold; background-color: rgb(236, 218, 213);
+        background-position: 10px 10px; background-repeat: no-repeat;" value="Login"><br><br>
+        
+        <strong style="font-size:30px;text-shadow: 2px 2px 5px rgb(150, 10, 10);
+        color: rgb(2, 2, 2);margin-left: 60px;">  If you are a new user, <a href="{% url 'signnewuser'%}" > Register here</a></strong>
+        <!-- <b style="color: red;">{{error}}</b> -->
+    </form>    
+    </center>
+</body>
+</html>

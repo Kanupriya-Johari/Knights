@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<style>
+ body {background: linear-gradient(90deg, #dbd8c4, #c4775f80);}
+ .container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 80vh;
+            }
+
+.fancy {
+  position: relative;
+  background-color: rgb(223, 201, 103);
+  padding: 2rem;
+  height: 525px;
+  width: 600px;
+  box-shadow: 0px 0px 35px #a47854;
+  text-align: center;
+  
+}
+
+.fancy::before {
+  content: "";
+
+  position : absolute;
+  z-index  : -1;
+  bottom   : 15px;
+  right    : 5px;
+  width    : 50%;
+  top      : 80%;
+  
+
+  box-shadow: 0px 13px 10px black;
+  transform: rotate(4deg);
+}
+
+.ghost-round {
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 25px;
+  color: rgb(22, 18, 16);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-top: 25px;
+margin-bottom: 40px;
+align-self: flex-end;
+}
+.ghost-round:hover {
+        background: rgba(41, 13, 13, 0.15);
+        color: rgb(228, 99, 99);
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+        }
+.input-fields {
+        margin-top: 50px;
+        }
+        .input-line {
+        background: none;
+        margin-bottom: 10px;
+        line-height: 2.4em;
+        color: #fff;
+        font-family: roboto;
+        font-weight: 300;
+        letter-spacing: 0px;
+        letter-spacing: 0.02rem;
+        font-size: 19px;
+        font-size: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+        }
+
+        .full-width {
+        width: 100%;
+        }
+
+
+
+#bottom {
+                position:absolute; 
+                             
+                bottom: 100px;                         
+                left:200px;                          
+            }
+</style>
+</head>
+<body>
+    <h1 style="text-align:center;color: #1b0c3b; " >Hello There ! </h1>
+    <h2 style="text-align:center;color: #1b0c3b; " >We're almost done.  </h2>
+    <div class="container"><div class="fancy">
+        <h1 style="color: #700e0e;" >Before using our services you need to create an account.</h1>
+        <form method="POST">
+        {% csrf_token %}       
+        <div class='input-fields'>
+            <input type='text' name="username" placeholder='Username' id="username"class='input-line full-width' required/>
+            <input type='text' name="age"placeholder='Age'id="age" class='input-line full-width' required/>
+            <input type='email'name="email" placeholder='Email' id="email"class='input-line full-width' required/>
+            <input type='password'name="password1" placeholder='Password' id="password1"class='input-line full-width' required/>               
+            <input type='password'name="password2" placeholder='Confirm Password' id="password2" class='input-line full-width' required/>
+        </div>
+        <div><input type="submit" value="Create Account"  class='ghost-round full-width'></input></div>
+        <h1 style="color: red; font-size: 35px;">{{error}}</h1>  
+    <h1 style="color: green; font-size: 35px;">{{info}}</h1>
+    
+    </div>
+</div>
+    
+</div>
+</div>
+</form>
+
+</body>
+</html>
