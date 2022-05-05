@@ -1,5 +1,5 @@
 from django.db import IntegrityError
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth.models import User
@@ -82,6 +82,8 @@ def uploadedfiledetails(request):
     return render(request,'uploadedfiledetails.html')
 def index1(request):
     return render(request,'index1.html')
+def fileRetrospection(request):
+    return render(request,'fileRetrospection.html')    
 
 def index(request):
     if request.method == 'POST':
@@ -96,3 +98,7 @@ def index(request):
         return render(request,'index.html',{'form':UserCreationForm(),'info':'The file is uploaded successfully!!'})
     else:
         return render(request, 'index.html')
+
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect('')

@@ -103,7 +103,7 @@
         
         .wrapper .sidebar ul li a{
             display: block;
-            padding: 10px 22px 20px 0px;
+            padding: 10px 20px 20px 0px;
             /* border-bottom: 1px solid #10558d; */
             color: rgb(36, 31, 7);
             font-size: 24px;
@@ -233,7 +233,7 @@
                 <p style="text-align:center">Hi {{user.username}}</p>
                
             <div class="logout">
-                <a href="#" class="btn btn-info btn-lg">
+              <a href="{% url 'logoutpage' %}"  class="btn btn-info btn-lg">
                     <span class="glyphicon glyphicon-log-out"></span> Log out
                   </a>
             </div>
@@ -253,7 +253,7 @@
                 <li><a href="{% url 'index' %}">Upload Files</a></li>
                 <li><a href="{% url 'uploadedfiledetails' %}">Uploaded File Details</a></li>
                 {% comment %} <li><a href="#">No of files Uploaded</a></li> {% endcomment %}
-                <li><a href="#">File retrospection </a></li>
+               <li><a href="{% url 'fileRetrospection' %}">File retrospection</a></li>
             </ul>
         </div>
         <div class="main_container">

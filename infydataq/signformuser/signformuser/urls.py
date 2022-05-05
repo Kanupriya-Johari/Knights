@@ -38,7 +38,9 @@ urlpatterns = [
     path('userdetails/',views.userdetails,name="userdetails"),
     path('index/',views.index,name="index"),
     path('uploadedfiledetails/',views.uploadedfiledetails,name="uploadedfiledetails"),
-    path('index1/',views.index1,name="index1")
+    path('index1/',views.index1,name="index1"),
+     path('fileRetrospection/',views.fileRetrospection,name="fileRetrospection")
+
     #path('FileUploadView/',views.FileUploadView,name="FileUploadView"),
     # path('Logout',views),
     #  path('', views.home)

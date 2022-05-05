@@ -5,18 +5,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        var hamburger = document.querySelector(".hamburger ");
-         hamburger.addEventListener("click", function(){
-     document.querySelector("body").classList.toggle("active");
-     })
+   
 
 
     </script>
     <title>InfyDataQ</title>
     <style>
         body {background: linear-gradient(90deg, #dbd8c4, #c4775f80);};
-            
+          
         /* wrapper */
         *{
             list-style: none;
@@ -40,7 +36,7 @@
             border-color: rgba(121, 33, 3, 0.502); 
             border-left: 0pc;
            
-
+  
             }
         .wrapper .top .logout{            
             right: 10px;
@@ -75,7 +71,7 @@
             margin-bottom: 30px;
             text-align: center;
         }
-
+  
         .wrapper .sidebar .profile img{
             /* padding-top: 20px; */
             display: block;
@@ -84,7 +80,7 @@
             border-radius: 10%;
             margin: 0 auto;
         }
-
+  
         .wrapper .sidebar .profile h2{
             color: #d3c499;
             margin: 10px 0 5px;
@@ -95,8 +91,8 @@
             color: #000000;
             background:rgb(187, 173, 144);
             
-
-
+  
+  
         }
         /* sidebar menu */
         
@@ -115,17 +111,17 @@
         .wrapper .sidebar ul li a.active{
             color: #5a0606;
             
-
+  
             background:rgb(187, 173, 144);
             border-right: 5px solid rgb(172, 53, 18);
         }     
-
+  
         .wrapper .sidebar ul li a:hover:before,
         .wrapper .sidebar ul li a.active:before{
             display: block;
         }
         
-
+  
         .wrapper  .top .hamburger a{
             margin-top: 20px;
             padding-top: 20px;
@@ -135,7 +131,7 @@
             font-size: 28px;
             color:rgb(187, 173, 144);
         }
-
+  
         .wrapper  .top .hamburger a:hover{
             color: rgb(134, 46, 12);
         }
@@ -145,9 +141,9 @@
         body.active .wrapper .top{
             margin-left: 0;
             width: 100%;      }
-
-
-
+  
+  
+  
         .wrapper .main_container{
             width: (100% - 250px);
             margin-top: 70px;
@@ -174,8 +170,8 @@
             margin: 0 auto;
                 transition: width 2s, height 2s, transform 2s;}
            
-
-
+  
+  
         .wrapper .main_container .box img:hover {
             
             display: block;
@@ -218,6 +214,7 @@
        
        
           
+          
         
        </style>
        
@@ -226,10 +223,10 @@
     <div class="wrapper">
         <div class="top">
             <div class="hamburger">
-                <p style="text-align:center">Hi {{user.username}}</p>
+                <p style="text-align:center;">Hi {{user.username}}</p>
             </div>
            
-                <p style="text-align:center">Hi {{user.username}}</p>
+                <!-- <p style="text-align:center">Hi {{user.username}}</p> -->
                
             <div class="logout">
               <a href="{% url 'logoutpage' %}"  class="btn btn-info btn-lg">
@@ -242,6 +239,7 @@
             
             <!--profile icon & name-->
             <div class="profile">
+                
                 <img src="https://cdn-icons-png.flaticon.com/512/1250/1250689.png" alt="profile_picture">
                 <!-- add name  -->
                 <h2>{{user.username}}</h2>                
@@ -251,22 +249,26 @@
                 <li><a href="{% url 'userdetails' %}">User Details</a></li>
                 <li><a href="{% url 'index' %}">Upload Files</a></li>
                 <li><a href="{% url 'uploadedfiledetails' %}">Uploaded File Details</a></li>
-                {% comment %} <li><a href="#">No of files Uploaded</a></li> {% endcomment %}
                <li><a href="{% url 'fileRetrospection' %}">File retrospection</a></li>
             </ul>
         </div>
         <div class="main_container">
             <div class="box ">
-                <p style="text-align:center; margin-top: 100px;font-size: 40px; color: #5a0606;" > Hi {{user.username}}</p>
-                <img src="https://cdn-icons-png.flaticon.com/512/1250/1250689.png" alt="profile_picture">
-                
-                <div style="text-align:center; margin-top: 100px;font-size: 30px;" > 
-                    Username : {{user.username}} <br>
-                    Email ID : {{user.email}}
-                </div>           
-               
+                <h1 style="text-align:center; left :500px; margin-top: 70px;font-size: 30px; color:black ">File Retrospection </h1>
+                <p style="text-align:center; margin-top: 30px;font-size: 20px; color: black" > Hi {{user.username}}</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/1250/1250689.png" alt="profile_picture">             
                
             </div>
+            <br>
+            <div style="text-align:center">
+            
+            <div class="t1"> Filename : # </div>
+            <div class="t2"> Upload Date : # </div>
+            <div class="t3"> Whether file is cleansed : <select  >
+                            <option value = "Yes"> Yes </option><option value = "No"> No</option> </select></div>
+            <form><br/><input type="reset" value="Reset"> <input type="submit" value="Submit"></form>     
+        </div>
+                
             
           </div>
         
@@ -278,27 +280,6 @@
 
     </div>
 </body>
-{% comment %} <head>
-    <title>Welcome {{user.username}}</title>
-</head>
-<body>
-    {% csrf_token %}
-    {% if user.is_authenticated %}
-    <h1>UserName: {{user.username}}</h1>
-    <h2>Email: {{user.email}}</h2>
-    {% comment %} <h2>Age: {{user.age}}</h2> {% endcomment %}
-    
-    {% comment %} {% endif %}
-</body>
-</html>
-<style>
-    body{
-        text-align: center;
-    }
-</style>
 
-  
-  <!-- Page content -->
-  <div class="main">
-  </div> {% endcomment %}
-  
+
+</html>
