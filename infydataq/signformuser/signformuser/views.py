@@ -7,6 +7,8 @@ from django.contrib.auth import authenticate
 from django.db import IntegrityError
 from django.contrib.auth import login, logout
 import re
+
+from signformuser.forms import Profile_Form
 from .models import FileUpload
 import pandas as pd
 from django.shortcuts import redirect
@@ -85,15 +87,17 @@ def index1(request):
 def fileRetrospection(request):
     return render(request,'fileRetrospection.html')    
 
-def index(request):
+def index_up(request):
     if request.method == 'POST':
         file2 = request.FILES["file"]
+        
         csv=pd.read_csv(file2)
-        print(csv.head())
+    
         df=csv.dropna(axis=0)
         print(csv.to_string())
         document=FileUpload.objects.create(file=file2)
         document.save()
+        print("doccc",document.file)
         df.to_csv('cleaned_file.csv')
         return render(request,'index.html',{'form':UserCreationForm(),'info':'The file is uploaded successfully!!'})
     else:
@@ -102,3 +106,48 @@ def index(request):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect('')
+
+def index(request):
+    form = Profile_Form()
+    if request.method == 'POST':
+        form = Profile_Form(request.POST, request.FILES)
+        if form.is_valid():
+            user_pr = form.save(commit=False)
+            user_pr.UploadFile = request.FILES['UploadFile']
+            file_type = user_pr.UploadFile.url.split('.')[-1]
+            file_type = file_type.lower()
+            print(user_pr.UploadFile.size)
+            user_pr.save()
+            return render(request, 'uploadedfiledetails.html', {'user_pr': user_pr})
+    context = {"form": form,}
+    return render(request, 'index.html', context)    
+
+
+
+    rows = []
+  
+        
+    with open(r'cleaned_file.csv', 'r', newline='') as file:
+            with open(r'FILE2.csv', 'w', newline='') as file2:
+                
+                reader = csv.reader(file, delimiter=',')
+                
+                for row in reader:
+                    rows.append(row)
+        
+                
+                file_write = csv.writer(file2)
+        
+                
+                for val in rows:
+        
+                    
+                    current_date_time = datetime.now()
+                    val.insert(0, current_date_time)
+                    
+                    
+                    file_write.writerow(val)
+    return render(request, 'uploadedfiledetails.html', {'user_pr': user_pr})  
+        # return HttpResponse("your file was saved")
+    # else:
+    #     return render(request, 'index.html')    

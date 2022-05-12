@@ -70,7 +70,7 @@
         }
         
         /* wrapper sidebar  */
-        /* profile name  */
+        /* proFileName  */
         .wrapper .sidebar .profile{
             margin-bottom: 30px;
             text-align: center;
@@ -250,7 +250,7 @@
             <ul style="list-style: none;">
                 <li><a href="{% url 'userdetails' %}">User Details</a></li>
                 <li><a href="{% url 'index' %}">Upload Files</a></li>
-                <li><a href="{% url 'uploadedfiledetails' %}">Uploaded File Details</a></li>
+                {% comment %} <li><a href="{% url 'uploadedfiledetails' %}">Uploaded File Details</a></li> {% endcomment %}
                 {% comment %} <li><a href="#">No of files Uploaded</a></li> {% endcomment %}
                <li><a href="{% url 'fileRetrospection' %}">File retrospection</a></li>
             </ul>

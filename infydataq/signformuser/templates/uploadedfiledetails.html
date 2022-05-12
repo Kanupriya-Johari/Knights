@@ -70,7 +70,7 @@
       }
       
       /* wrapper sidebar  */
-      /* profile name  */
+      /* proFileName  */
       .wrapper .sidebar .profile{
           margin-bottom: 30px;
           text-align: center;
@@ -250,7 +250,7 @@
           <ul style="list-style: none;">
               <li><a href="{% url 'userdetails' %}">User Details</a></li>
               <li><a href="{% url 'index' %}">Upload Files</a></li>
-              <li><a href="{% url 'uploadedfiledetails' %}">Uploaded File Details</a></li>
+              {% comment %} {% comment %} <li><a href="{% url 'uploadedfiledetails' %}">Uploaded File Details</a></li> {% endcomment %} 
               {% comment %} <li><a href="#">No of files Uploaded</a></li> {% endcomment %}
              <li><a href="{% url 'fileRetrospection' %}">File retrospection</a></li>
           </ul>
@@ -264,8 +264,8 @@
     <div style="text-align:center;" >
     <p style="text-align:center; margin-top: 150px;font-size: 30px; color: #5a0606;" >
       <h1 style="text-align:center;font-size: 40px;">WELCOME {{user.username}} </h1>
-    <h1 style="text-align:center; margin-top: 100px;font-size: 30px;">FileName: </h1>
-    <h1 style="text-align:center; margin-top: 50px;font-size: 30px;">FileSize: </h1> </p>
+    <h1 style="text-align:center; margin-top: 100px;font-size: 30px;">FileName: {{user_pr.FileName}}</h1>
+    <h1 style="text-align:center; margin-top: 50px;font-size: 30px;">File Size:{{user_pr.UploadFile.size}} bytes</h1> </p>
     </div>
     {% endif %}
 </body>
